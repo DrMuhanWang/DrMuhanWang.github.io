@@ -1,2 +1,144 @@
-<h1>Hello!</h1>
-<h2>Welcome!</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C-(A)-S-H分子模型构建工具</title>
+    <link href="static/plugins/bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
+    <link href="static/plugins/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">
+                <i aria-hidden="true" class="fa fa-superpowers"></i>
+                <strong>MCTS-C(A)SH</strong>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/home" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-home"></i>
+                    主页
+                </a></li>
+                <li><a href="/tool" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-cube"></i>
+                    模型生成工具
+                </a></li>
+                <li><a href="/database" style="font-size: 15px">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    模型数据库
+                </a></li>
+                <li><a href="/team" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-users"></i>
+                    团队介绍
+                </a></li>
+                <li><a href="/contact" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-commenting"></i>
+                    联系我们
+                </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button" style="font-size: 16px">
+                        <i aria-hidden="true" class="fa fa-language"></i>
+                        语言
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/home">中文</a></li>
+                        <li class="divider" role="separator"></li>
+                        <li><a href="#">英文</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="container" style="margin-top: 30px">
+  <div class="col-md-6" style="height:500px; background-color: rgba(0,0,0,0.05); margin-right: -8px">
+      <div style="font-size: 30px; text-align: center; margin-top: 100px; font-family: 微软雅黑">
+          <h1><strong>C-(A)-S-H精确分子模型构建工具</strong></h1>
+      </div>
+      <div style="margin-top: 40px; font-weight: 540; line-height: 40px; font-family: 微软雅黑; font-size: 20px">
+          本工具基于创新性智能算法：蒙特卡洛树搜索(MCTS)算法，以实验关键参量为依据开展大样本迭代优化。依据您的模型参数要求，为您提供能量稳定、与实验事实相符的C-(A)-S-H精确分子结构模型。
+      </div>
+      <div style="margin-top: 25px">
+          <a href="/tool" class="btn btn-primary btn-lg" style="margin-left: 210px">立即体验</a>
+      </div>
+  </div>
+
+  <div class="col-md-6" style="margin-left: -8px;height:500px; width: 527px">
+      <img src="static/img/图片2.jpg" style="height:500px; width: 527px">
+  </div>
+</div>
+
+<div class="container" style="margin-top: 40px">
+    <div style="font-family: 微软雅黑; font-size: 30px; font-weight: 600; text-align: center">
+            <i class="fa fa-paper-plane-o" aria-hidden="true" style="margin-right: 20px"></i>什么是<mark>蒙特卡洛树搜索</mark>算法？
+    </div>
+</div>
+
+<div class="container" style="margin-top: 40px">
+    <div class="col-md-8">
+        <img src="static/img/图片4.jpg" class="img-thumbnail" style="width: 500px; height: 350px">
+    </div>
+
+    <div class="col-md-4">
+        <img src="static/img/图片3.webp" style="margin-left: -250px">
+        <div style="font-family: 微软雅黑; font-size: 20px; margin-left: -40px; font-weight: 560">
+            MCTS算法核心流程
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+        </div>
+        <div style="margin-top: 15px; font-family: 微软雅黑; font-size: 25px; margin-left: -130px">
+            <button type="button" class="btn btn-default btn-lg" style="font-weight: 550">选择</button>
+            →
+            <button type="button" class="btn btn-default btn-lg" style="font-weight: 550">扩展</button>
+            →
+            <button type="button" class="btn btn-default btn-lg" style="font-weight: 550">模拟</button>
+            →
+            <button type="button" class="btn btn-default btn-lg" style="font-weight: 550">回溯</button>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 30px">
+    <p class="text-center" style="font-size: 22px">
+        蒙特卡洛树搜索是一种<mark><strong>启发式搜索算法</strong></mark>，它将蒙特卡洛仿真和树搜索进行结合，用于解决<strong>复杂</strong>且<strong>大规模</strong>的<strong>决策</strong>问题。
+    </p>
+    <p class="text-center" style="font-size: 22px; margin-top: 20px">
+        2016年3月，<strong>AlphaGo</strong>对战围棋冠军李世石以大比分4:1获胜，正是基于<strong>MCTS算法</strong>所实现。
+    </p>
+    <p class="text-center" style="font-size: 22px; margin-top: 20px">
+       由于C-(A)-S-H模型构建的<strong>相空间</strong>大小与围棋等大型搜索空间相当，此算法同样适配于模型构建，为<strong>高精度</strong>分子模型开发提供新途径。
+    </p>
+</div>
+
+<div style="height: 100px">
+
+</div>
+
+<script src="static/js/jquery-3.7.1.min.js"></script>
+<script src="static/plugins/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
