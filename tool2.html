@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C-(A)-S-H分子模型构建工具</title>
+    <link href="static/plugins/bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
+    <link href="static/plugins/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">
+                <i aria-hidden="true" class="fa fa-superpowers"></i>
+                <strong>MCTS-C(A)SH</strong>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-home"></i>
+                    主页
+                </a></li>
+                <li><a href="tool2.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-cube"></i>
+                    模型生成工具
+                </a></li>
+                <li><a href="database3.html" style="font-size: 15px">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    模型数据库
+                </a></li>
+                <li><a href="team4.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-users"></i>
+                    团队介绍
+                </a></li>
+                <li><a href="contact5.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-commenting"></i>
+                    联系我们
+                </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button" style="font-size: 16px">
+                        <i aria-hidden="true" class="fa fa-language"></i>
+                        语言
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tool2.html">中文</a></li>
+                        <li class="divider" role="separator"></li>
+                        <li><a href="#">英文</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="container" style="width:600px; margin-top: 20px; background-color: #d5d5d5; height: 550px">
+    <form action="/tool" id="dataForm" method="post" style="margin-top: 25px" class="form-inline">
+        <div class="form-group form-group-lg" style="width: 600px; margin-left: 110px">
+            <label for="C/S" style="font-size: 20px">钙硅比：</label>
+            <input class="form-control" type="number" id="C/S" name="C/S" placeholder="请输入" min="0.0" max="2.0" step="0.01" style="width: 40%" required>
+        </div>
+        <div class="form-group form-group-lg" style="width: 600px; margin-top: 25px; margin-left: 110px">
+            <label for="A/S" style="font-size: 20px">铝硅比：</label>
+            <input class="form-control" type="number" id="A/S" name="A/S" placeholder="请输入" min="0.0" max="0.5" step="0.01" style="width: 40%" required>
+        </div>
+        <div class="form-group form-group-lg" style="width: 600px; margin-top: 25px; margin-left: 95px">
+            <label for="MCL" style="font-size: 20px">平均链长：</label>
+            <input class="form-control" type="number" id="MCL" name="MCL" placeholder="请输入" min="0.0" max="20.0" step="0.1" style="width: 40%" required>
+        </div>
+
+        <div style="width: 600px; margin-top: 25px; margin-left: 22px">
+            <p style="font-size: 20px"><strong>Q分布（请确保各参数总和为1）</strong></p>
+        </div>
+
+        <div class="form-group form-group-lg" style="margin-top: 10px">
+            <label for="Q0" style="font-size: 20px; margin-left: 23px">Q0：</label>
+            <input class="form-control" type="number" id="Q0" name="Q0" placeholder="请输入" min="0.0" max="1.0" step="0.01" style="width: 20%" required>
+
+            <label for="Q1" style="font-size: 20px; margin-left: 5px">Q1：</label>
+            <input class="form-control" type="number" id="Q1" name="Q1" placeholder="请输入" min="0.0" max="1.0" step="0.01" style="width: 20%" required>
+
+            <label for="Q2" style="font-size: 20px; margin-left: 5px">Q2：</label>
+            <input class="form-control" type="number" id="Q2" name="Q2" placeholder="请输入" min="0.0" max="1.0" step="0.01" style="width: 20%" required>
+
+            <label for="Q3" style="font-size: 20px; margin-top: 25px; margin-left: 110px">Q3：</label>
+            <input class="form-control" type="number" id="Q3" name="Q3" placeholder="请输入" min="0.0" max="1.0" step="0.01" style="width: 20%" required>
+
+            <label for="Q4" style="font-size: 20px; margin-left: 5px">Q4：</label>
+            <input class="form-control" type="number" id="Q4" name="Q4" placeholder="请输入" min="0.0" max="1.0" step="0.01" style="width: 20%" required>
+        </div>
+
+        <div style="width: 600px; margin-top: 20px; margin-left: 22px">
+            <p style="font-size: 20px"><strong>预期模型精细程度</strong></p>
+        </div>
+
+        <div>
+            <label class="radio-inline" style="font-size: 20px; margin-left: 190px">
+                <input id="inlineRadio1" name="inlineRadioOptions" type="radio" value="低"> <strong>低</strong>
+            </label>
+            <label class="radio-inline" style="font-size: 20px; margin-left: 25px">
+                <input id="inlineRadio2" name="inlineRadioOptions" type="radio" value="中"> <strong>中</strong>
+            </label>
+            <label class="radio-inline" style="font-size: 20px; margin-left: 25px">
+                <input id="inlineRadio3" name="inlineRadioOptions" type="radio" value="高"> <strong>高</strong>
+            </label>
+        </div>
+
+        <button class="btn btn-default" style="margin-left: 245px; margin-top: 20px" type="submit">点击提交</button>
+    </form>
+</div>
+
+<div class="container" style="width: 700px; margin-top: 20px">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: 20px"><strong>注意事项</strong></h3>
+      </div>
+      <div class="panel-body">
+        <p style="font-size: 17px">1、请根据您的模型需求输入以上各项参数，并保证其输入符合<strong>格式</strong>以及<strong>范围</strong>要求。</p>
+        <p style="font-size: 17px; line-height: 30px">2、当您提交后若提示<strong>数据已存在</strong>，则表示有用户提交过相同参数，请您此时移至<strong>模型数据库</strong>直接下载符合您要求的模型文件。</p>
+        <p style="font-size: 17px; line-height: 30px">3、成功提交数据后，请您耐心等待<strong>1-2小时</strong>，我们会将相应模型文件上传至<strong>模型数据库</strong>，请您留意<strong>数据库更新</strong>并及时下载。</p>
+        <div style="text-align: center">
+           <p style="font-size: 17px"><strong>若有不到之处，请多多包涵！ :)</strong></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div style="height: 100px">
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">通知消息</h4>
+      </div>
+      <div class="modal-body">
+           <p id="modalMessage"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+        document.getElementById('dataForm').onsubmit = function(event) {
+            event.preventDefault();  // 阻止默认提交行为
+
+            const num1 = parseFloat(document.getElementById('Q0').value);
+            const num2 = parseFloat(document.getElementById('Q1').value);
+            const num3 = parseFloat(document.getElementById('Q2').value);
+            const num4 = parseFloat(document.getElementById('Q3').value);
+            const num5 = parseFloat(document.getElementById('Q4').value);
+            const sum = num1 + num2 + num3 + num4 + num5
+            if (sum !== 1) {
+                document.getElementById('modalMessage').innerText = '请检查Q分布各参数总和是否为1！'
+                $('#myModal').modal('show');
+                return;
+            }
+
+            const formData = new FormData(this);
+            fetch('/tool', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('modalMessage').innerText = data.message;
+                $('#myModal').modal('show');
+            })
+            .catch(error => {
+                console.error('错误:', error);
+            });
+        };
+</script>
+
+<script src="static/js/jquery-3.7.1.min.js"></script>
+<script src="static/plugins/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

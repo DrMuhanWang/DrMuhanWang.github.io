@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C-(A)-S-H分子模型构建工具</title>
+    <link href="static/plugins/bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
+    <link href="static/plugins/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+        a {
+            color: black;
+        }
+        a:hover{
+            color: black !important;
+            background-color: #d5d5d5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">
+                <i aria-hidden="true" class="fa fa-superpowers"></i>
+                <strong>MCTS-C(A)SH</strong>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-home"></i>
+                    主页
+                </a></li>
+                <li><a href="tool2.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-cube"></i>
+                    模型生成工具
+                </a></li>
+                <li><a href="database3.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-database"></i>
+                    模型数据库
+                </a></li>
+                <li><a href="team4.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-users"></i>
+                    团队介绍
+                </a></li>
+                <li><a href="contact5.html" style="font-size: 15px">
+                    <i aria-hidden="true" class="fa fa-commenting"></i>
+                    联系我们
+                </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button" style="font-size: 16px">
+                        <i aria-hidden="true" class="fa fa-language"></i>
+                        语言
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="database3.html">中文</a></li>
+                        <li class="divider" role="separator"></li>
+                        <li><a href="#">英文</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="container" style="text-align: center; margin-top: -20px">
+    <h2><strong>可下载模型数据文件</strong></h2>
+    <ul id="fileList" class="list-group"></ul>
+    <script>
+        // 获取可下载文件列表
+        fetch('/files')
+            .then(response => response.json())
+            .then(data => {
+                const fileList = document.getElementById('fileList');
+                data.files.forEach(file => {
+                    const li = document.createElement('li');
+                    const link = document.createElement('a')
+                    link.href = `/uploads/${file}`;
+                    link.download = file;
+                    link.textContent = file;
+                    li.classList.add('list-group-item');
+                    li.style.cssText = 'font-size:18px; font-weight:600';
+                    link.style.textDecoration = 'none';
+                    if (file.includes('CSH')){
+                        link.style.color = 'blue';
+                    } else if (file.includes('CASH')){
+                        link.style.color = 'red';
+                    } else {
+                        link.style.color = 'grey'
+                    }
+                    li.appendChild(link);
+                    fileList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('错误:', error);
+            });
+    </script>
+</div>
+
+<div class="container" style="width: 900px; margin-top: 5px">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: 20px"><strong>温馨提示</strong></h3>
+      </div>
+      <div class="panel-body">
+        <p style="font-size: 17px">1、请根据<strong>文件名颜色</strong>下载您所需的模型文件：<span style="color: blue"><strong>蓝色</strong></span>-<strong>CSH</strong>分子模型；<span style="color: red"><strong>红色</strong></span>-<strong>CASH</strong>分子模型；<span style="color: grey"><strong>灰色</strong></span>-<strong>说明性</strong>文件。
+        <p style="font-size: 17px; line-height: 30px">2、当您<strong>成功提交</strong>数据后，若模型数据库<strong>没有更新</strong>对应的模型文件，请您耐心等待，我们会及时进行上传，请您留意<strong>数据库更新</strong>并及时下载。</p>
+        <p style="font-size: 17px; line-height: 30px">3、若模型数据库中<strong>没有</strong>您所需的模型文件，请移至<strong>模型生成工具</strong>，根据您的需求提交<strong>模型参数</strong>，后续我们将处理并上传模型文件。</p>
+        <div style="text-align: center">
+            <p style="font-size: 17px"><strong>若有不到之处，请多多包涵！ :)</strong></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div style="height: 100px">
+
+</div>
+
+<script src="static/js/jquery-3.7.1.min.js"></script>
+<script src="static/plugins/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
